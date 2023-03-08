@@ -65,7 +65,7 @@ async def iytdl_inline(event):
         input_url = (reply.text).strip()
     if not input_url:
         return await edit_delete(event, "**- بالـرد ع رابـط او كتـابة نص مـع الامـر**")
-    zedevent = await edit_or_reply(event, f"**⌔╎جـارِ البحث في اليوتيوب عـن:** `'{input_url}'`")
+    zedevent = await edit_or_reply(event, f"**⌔╎گەڕان لە یوتوب:** `'{input_url}'`")
     flag = True
     cout = 0
     results = None
@@ -84,7 +84,7 @@ async def iytdl_inline(event):
         await zedevent.delete()
         await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
     else:
-        await zedevent.edit("**⌔╎عـذراً .. لم اجد اي نتائـج**")
+        await zedevent.edit("**⌔╎ببوورە .. هیچ نەدۆزرایەوە **")
 
 
 @zedub.tgbot.on(
@@ -112,12 +112,12 @@ async def ytdl_download_callback(c_q: CallbackQuery):  # sourcery no-metrics
     if str(choice_id).isdigit():
         choice_id = int(choice_id)
         if choice_id == 0:
-            await c_q.answer("🔄  جـارِ ...", alert=False)
+            await c_q.answer("🔄  بارکردن ...", alert=False)
             await c_q.edit(buttons=(await download_button(yt_code)))
             return
     startTime = time()
     choice_str, disp_str = get_choice_by_id(choice_id, downtype)
-    media_type = "فيديو" if downtype == "v" else "مقطع صوتي"
+    media_type = "ڤیدیۆ" if downtype == "v" else "مقطع صوتي"
     callback_continue = f"جار تحميل {media_type} يرجى الانتظار"
     callback_continue += f"\n\nصيغـة الملـف : {disp_str}"
     await c_q.answer(callback_continue, alert=True)
