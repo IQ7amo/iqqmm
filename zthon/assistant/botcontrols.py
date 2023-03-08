@@ -149,14 +149,14 @@ async def ban_botpms(event):
     except Exception as e:
         return await event.reply(f"**- خطـأ :**\n`{e}`")
     if user_id == Config.OWNER_ID:
-        return await event.reply("**- لايمكننـي حظـرك سيـدي ؟!**")
+        return await event.reply("**- ناتوانی دەریبکەیت!**")
     if check := check_is_black_list(user.id):
         return await event.client.send_message(
             event.chat_id,
             f"#بالفعـل_محظـور\
-            \nالشخـص بالفعـل موجود في قائمـة الحظـر.\
-            \n**سبب الحظـر:** `{check.reason}`\
-            \n**الوقت:** `{check.date}`.",
+            \nئەو کەسە ئێستا لە لیستی دەرکراوەکانە.\
+            \n**هۆکار:** `{check.reason}`\
+            \n**کات:** `{check.date}`.",
         )
     msg = await ban_user_from_bot(user, reason, reply_to)
     await event.reply(msg)
