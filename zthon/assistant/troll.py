@@ -24,7 +24,7 @@ async def on_plug_in_callback_query_handler(event):
                 encrypted_tcxt = message["text"]
                 reply_pop_up_alert = encrypted_tcxt
         except KeyError:
-            reply_pop_up_alert = "- عـذراً .. هذه الرسـالة لم تعد موجـوده في سيـرفرات زدثــون"
+            reply_pop_up_alert = "- ببورە .. ئەم نامەیە لە سێرڤەری بۆتی زیرەك نییە "
     else:
-        reply_pop_up_alert = "- عـذراً .. هذه الرسـالة لم تعد موجـوده في سيـرفرات زدثــون"
+        reply_pop_up_alert = "- ببورە .. ئەم نامەیە لە سێرڤەری بۆتی زیرەك نییە "
     await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
