@@ -48,14 +48,14 @@ async def check_bot_started_users(user, event):
     check = get_starter_details(user.id)
     if check is None:
         start_date = str(datetime.now().strftime("%B %d, %Y"))
-        notification = f"**- هنـاك شخـص👤** {_format.mentionuser(user.first_name , user.id)} **قـام بالاشتـراك بالبـوت المسـاعـد**.\
-                \n**- الايـدي : **`{user.id}`\
-                \n**- الاسـم : **{get_display_name(user)}"
+        notification = f"**- کەسەکە👤** {_format.mentionuser(user.first_name , user.id)} **قـام بالاشتـراك بالبـوت المسـاعـد**.\
+                \n**- ناسنامە : **`{user.id}`\
+                \n**- ناو : **{get_display_name(user)}"
     else:
         start_date = check.date
-        notification = f"**- هنـاك شخـص👤** {_format.mentionuser(user.first_name , user.id)} **قـام بالاشتـراك بالبـوت المسـاعـد**.\
-                \n**- الايـدي : **`{user.id}`\
-                \n**- الاسـم : **{get_display_name(user)}"
+        notification = f"**- لێرەیە👤** {_format.mentionuser(user.first_name , user.id)} **قـام بالاشتـراك بالبـوت المسـاعـد**.\
+                \n**- ناسنامە : **`{user.id}`\
+                \n**- ناو : **{get_display_name(user)}"
     try:
         add_starter_to_db(user.id, get_display_name(user), start_date, user.username)
     except Exception as e:
@@ -104,22 +104,22 @@ async def bot_start(event):
                 my_mention=my_mention,
             )
         else:
-            start_msg = f"**❈╎مـرحباً بـك عزيـزي  {mention} **\
-                        \n**❈╎انـا {my_mention}' **\
-                        \n**❈╎ يمكنك التواصل مع مالك البوت فقط قم بـ ارسال رسالتك .**\
-                        \n\n**❈╎البـوت خـاص بسـورس :** [𝗭𝗧𝗵𝗼𝗻 𓅛](https://t.me/ZedThon)"
+            start_msg = f"**❈╎بەخێربێی ئەزیزم🥰 {mention} **\
+                        \n**❈╎من {my_mention}' **\
+                        \n**❈╎ دەتوانی پەیوەندی بە خاوەنی بۆت بکەیت تەنیا لێرە نامەیەك جێ بێڵە .**\
+                        \n\n**❈╎بۆتی تایبەت بە سەرچاوەی :** [𝙄𝙌 𝙐𝙎𝙀𝙍𓅛](https://t.me/IQUSER0)"
         buttons = [
             (
-                Button.url("قنـاة السـورس", "https://t.me/ZedThon"),
+                Button.url("چەناڵی سەرچاوە", "https://t.me/IQUSER0"),
                 Button.url(
-                    "مطـور السـورس",
-                    "https://t.me/zzzzl1l",
+                    "گەشەپێدەری سەرچاوە",
+                    "https://t.me/IQ7amo",
                 ),
             )
         ]
     else:
-        start_msg = "**❈╎مـرحباً بك مطـوري 🖤𓆰**\
-            \n\n**❈╎لرؤيـة الاوامـر الخاصـه بـك اضغـط :**  /help "
+        start_msg = "**❈╎بەخێربێی گەشەپێدەرەکەم 🖤𓆰**\
+            \n\n**❈╎بۆ بینینی فەرمانی تایبەت بە خۆت ئێرە دابگرە :**  /help "
         buttons = None
     try:
         if custompic:
@@ -431,7 +431,7 @@ async def bot_pm_ban_cb(c_q: CallbackQuery):
     else:
         await c_q.answer(f"- جـارِ حظـر -> {user_id} ...", alert=False)
         await ban_user_from_bot(user, "Spamming Bot")
-        await c_q.edit(f"**- الايـدي :** {user_id} \n**- تم الحظـر .. بنجـاح ✅**")
+        await c_q.edit(f"**- ناسنامە :** {user_id} \n**- تم الحظـر .. بنجـاح ✅**")
 
 
 def time_now() -> Union[float, int]:
