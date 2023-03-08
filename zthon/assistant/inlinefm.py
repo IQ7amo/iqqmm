@@ -59,7 +59,7 @@ def add_s(msg, num: int):
 
 def get_manager(path, num: int):
     if os.path.isdir(path):
-        msg = "- المجلدات والملفات في `{}` :\n".format(path)
+        msg = "- فایلەکان `{}` :\n".format(path)
         lists = sorted(os.listdir(path))
         files = ""
         folders = ""
@@ -93,7 +93,7 @@ def get_manager(path, num: int):
         msgs = add_s(msg, int(num))
     else:
         size = os.stat(path).st_size
-        msg = "- معلومـات الملـف :\n"
+        msg = "- زانیاری فایلەکان :\n"
         if str(path).endswith((".mp3", ".flac", ".wav", ".m4a")):
             mode = "🎧"
         if str(path).endswith((".opus")):
@@ -111,10 +111,10 @@ def get_manager(path, num: int):
         time.ctime(os.path.getctime(path))
         time2 = time.ctime(os.path.getmtime(path))
         time3 = time.ctime(os.path.getatime(path))
-        msg += f"**- المـوقع :** `{path}`\n"
-        msg += f"**- الايقـونه :** `{mode}`\n"
-        msg += f"**- الحجـم :** `{humanbytes(size)}`\n"
-        msg += f"**- آخـر تحـديث للملـف :** `{time2}`\n"
+        msg += f"**- شوێن :** `{path}`\n"
+        msg += f"**- مۆد :** `{mode}`\n"
+        msg += f"**- قەبارە :** `{humanbytes(size)}`\n"
+        msg += f"**- کۆتا نوێکردنەوەی فایل :** `{time2}`\n"
         msg += f"**- آخـر وقـت تم الوصـول الى الملـف :** `{time3}`"
         buttons = [
             [
